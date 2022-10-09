@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    /* End of Search */
+    /* Footer */
+    
+    footer {
+    position: fixed;
+    bottom: 0;
+    height: 42px;
+    width: 100%;
+    font-size: 9.5pt;
+    background-image: -moz-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: -o-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F5F5F5), color-stop(1, #F0F0F0));
+    background-image: -webkit-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: linear-gradient(to bottom, #F5F5F5 0%, #F0F0F0 100%);
+    }
+    
+    .footer-left {
+    float: left;
+    margin-left: 16px;
+    }
+    
+    .footer-right {
+    float: right;
+    margin-right: 16px;
+    }
+    
+    footer nav {
+    display: inline-block;
+    padding: 15px 0 0 0;
+    }
+    
+    footer nav a {
+    padding: 3px 14px;
+    color: #646464;
+    }
+    
+    footer nav a:hover {
+    color: #000000;
+    }
+    
+    /* End of Footer */
+    
+  </style>
+</head>
+<body>
+    <!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-between">
+      <!-- Left elements -->
+      <div class="d-flex">
+        <!-- Brand -->
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+          <img
+          src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+            height="20"
+            alt="MDB Logo"
+            loading="lazy"
+            style="margin-top: 2px;"
+          />
+        </a>
+  
+        <!-- Search form -->
+        <form class="input-group w-auto my-auto d-none d-sm-flex">
+          {% csrf_token %}
+          <input
+            autocomplete="off"
+            type="search"
+            class="form-control rounded-pill submit "
+            placeholder="Search"
+            style="min-width: 700px;"
+            name="search"
+          />
+          <span class="input-group-text border-0 d-none d-lg-flex"
+            ><i class="fas fa-search"></i
+          ></span>
+        </form>
+      
+      </div>
+      <!-- Left elements -->
+      
+    
+  
+      <!-- Right elements -->
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item dropdown me-3 me-lg-1">
+          <a
+            class="nav-link dropdown-toggle hidden-arrow"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+          <i class="fa fa-cog" aria-hidden="true"></i>
+            <span class="badge rounded-pill badge-notification bg-danger"></span>
+          </a>
+         
+        </li>
+        <li class="nav-item dropdown me-3 me-lg-1">
+          <a
+            class="nav-link dropdown-toggle hidden-arrow"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fas fa-bell fa-lg"></i>
+            <span class="badge rounded-pill badge-notification bg-danger"></span>
+          </a>
+         
+        </li>
+        <li class="nav-item me-3 me-lg-1">
+          <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+              class="rounded-circle"
+              height="22"
+              alt="Black and White Portrait of a Man"
+              loading="lazy"
+            />
+          
+          </a>
+        </li>
+      </ul>
+      <!-- Right elements -->
+    </div>
+    
+  </nav>
+  <!-- Navbar -->
+
+  {% if final_result %}
+    <b style="padding-left: 50px; padding-right: 50px; color: #646464;">Web Results</b>
+    {% for result in final_result %}
+    <div style="padding-left: 50px; padding-right: 50px;">
+        <h3 style="color: blue;"><a href="{{result.1}}">{{ result.0}}</a></h3>
+        <h3 style="color: green;">{{result.1}}</h3>
+        <h3>{{result.2}}</h3>
+       
+    </div><br><br>
+    {% endfor %}
+    {% endif %}
+
+    <div class="footer">
+      <footer class="bottom-toolbar">
+      <nav class="footer-left">
+      <a href="#">Advertising</a>
+      <a href="#">Business</a>
+      <a href="#">About</a>
+      </nav>
+      <nav class="footer-right">
+      <a href="#">New Privacy &amp; Terms</a>
+      <a href="#">Settings</a>
+      </nav>
+      </footer>
+      </div>
+    <script
+
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+></script>
+</body>
+</html>
